@@ -1,20 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h3>cl-image: works fine</h3>
 
+<cl-image public-id="sample" width="200">
+    <cl-transformation angle="180"></cl-transformation>
+</cl-image>
+
+<h3>[clSrc]: works fine</h3>
+
+<img clSrc="sample" width="200"/>
+
+<h3>[clSrcset] with one source</h3>
+
+<p>Nominally works, though a one-image srcset isn't all that useful, and I'd expect a src fallback</p>
+
+<img clSrcset="sample" width="200"/>
+
+<blockquote>
+  &lt;img _ngcontent-c0="" clsrcset="sample" ng-reflect-cl-srcset="sample" srcset="http://res.cloudinary.com/demo/image/upload/sample" width="200"&gt;
+</blockquote>
+
+<h3>[clSrcset] attempts at multiple sources</h3>
+
+<img clSrcset="sample 200w, sample 400w"/>
+<img clSrcset="sample 2x"/>
+<img clSrcset="sample.jpg 2x"/>
+
+<p>
+  These attempts generate URLs that doesn't work. I'd expect them to generate multiple image URLs.
+</p>
