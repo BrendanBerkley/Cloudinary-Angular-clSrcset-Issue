@@ -18,6 +18,15 @@
   &lt;img _ngcontent-c0="" clsrcset="sample" ng-reflect-cl-srcset="sample" srcset="http://res.cloudinary.com/demo/image/upload/sample" width="200"&gt;
 </blockquote>
 
+<h3>[clSrcset] with two sources, the actual solve</h3>
+
+Based on the solve <a href="https://github.com/cloudinary/cloudinary_angular/issues/170#issuecomment-467953597">noted here</a>
+
+<img 
+  clSrcset="https://res.cloudinary.com/demo/image/upload/sample 200w, https://res.cloudinary.com/demo/image/upload/sample 400w"
+  fetch-format="auto"
+/>
+
 <h3>[clSrcset] attempts at multiple sources</h3>
 
 <img clSrcset="sample 200w, sample 400w"/>
